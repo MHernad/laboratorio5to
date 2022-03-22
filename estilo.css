@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html, body {
+    text-rendering: optimizeLegibility;
+    height: 100%;
+    width: 100%;
+}  
+
+.contenedor {
+    background-color: rgb(31,31,31);
+}
+
+.contenedor > h1 {
+    margin: 0;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    text-align: center;
+}

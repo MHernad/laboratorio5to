@@ -2,9 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SistemaDeRegistroDePersonas {
-    ArrayList<Persona> personas = new ArrayList<>();
-    Menu menu = new Menu();
+    ArrayList<Persona> personas;
+    Menu menu;
 
+    public SistemaDeRegistroDePersonas(){
+        this.personas = new ArrayList<>();
+        this.menu = new Menu();
+    }
+    
     public void registrar(){
         personas.add(menu.IngresarPersona()); //registra persona :D
     }

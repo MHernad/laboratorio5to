@@ -19,13 +19,14 @@ public class SistemaDeRegistroDePersonas {
         Scanner myObj = new Scanner(System.in);
         int Dni = myObj.nextInt();
 
+        this.personas.removeIf(p -> {p.getDni() == Dni)})
 
-        for(int i = 0; i < personas.size(); i++) {
+        /* for(int i = 0; i < personas.size(); i++) {
             if(personas.get(i).dni == Dni) {
                 personas.remove(i);
                 break;
             }
-        }
+        } */
     }
 
     public void modificar(){

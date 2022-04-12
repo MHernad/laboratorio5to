@@ -30,7 +30,7 @@ public class Madre extends Persona{
         ArrayList<Hijo> hijosMenores = new ArrayList<>();
 
         for (Hijo hijo : listaDeHijos){
-            if (hijo.getEdad() < 18) {
+            if (!hijo.esMenorDeEdad()) {
                 hijosMenores.add(hijo);
             }
         }

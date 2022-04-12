@@ -7,13 +7,13 @@ public class Madre extends Persona{
     Madre(){
         super();
         this.empresa = "Movistar";
-        this.listaDeHijos = null;
+        this.listaDeHijos = new ArrayList<>();
     }
 
     Madre(String nombre){
         super(nombre);
         this.empresa = "Movistar";
-        this.listaDeHijos = null;
+        this.listaDeHijos = new ArrayList<>();
     }
 
     public void setListaDeHijos(ArrayList<Hijo> listaDeHijos) {

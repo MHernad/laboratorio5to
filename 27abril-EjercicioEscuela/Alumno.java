@@ -33,7 +33,7 @@ public class Alumno extends Persona {
     public float mayorNota() {
         float notaDeMayorValor = 1;
         for(ArrayList<Float> notasAux : this.notas.values()){
-            int ultimaNota = notaAux.size()-1;
+            int ultimaNota = notasAux.size()-1;
             if(notasAux.get(ultimaNota) > notaDeMayorValor) {
                 notaDeMayorValor = notasAux.get(ultimaNota);
             }
@@ -41,25 +41,24 @@ public class Alumno extends Persona {
         return notaDeMayorValor;
     }
 
+    public float obtenerPromedio(ArrayList<Float> numeros){
+        float sumaNums = 0;
+
+        for (float n : numeros){
+            sumaNums += n;
+        }
+
+        return sumaNums / numeros.size();
+    }
+
     public float promedioNotas() {
-        float sumaPromedioMaterias = 0;
         ArrayList<Float> promedioMaterias = new ArrayList<>();
 
         for (ArrayList<Float> notasMateria : this.notas.values()){
-            float sumaNotasMateria = 0;
-
-            for (float nota : notasMateria){
-                sumaNotasMateria += nota;
-            }
-
-            promedioMaterias.add(sumaNotasMateria / notasMateria.size());
+            promedioMaterias.add(obtenerPromedio(notasMateria));
         }
 
-        for (float promedioMateria : promedioMaterias){
-            sumaPromedioMaterias += promedioMateria;
-        }
-
-        return sumaPromedioMaterias / promedioMaterias.size();
+        return obtenerPromedio(promedioMaterias);
     }
 
     public void agregarMateria(String nombreDeMateria){

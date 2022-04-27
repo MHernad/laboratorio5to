@@ -33,8 +33,9 @@ public class Alumno extends Persona {
     public float mayorNota() {
         float notaDeMayorValor = 1;
         for(ArrayList<Float> notasAux : this.notas.values()){
-            if(notasAux.get(notasAux.size()-1) > notaDeMayorValor) {
-                notaDeMayorValor = notasAux.get(notasAux.size()-1);
+            int ultimaNota = notaAux.size()-1;
+            if(notasAux.get(ultimaNota) > notaDeMayorValor) {
+                notaDeMayorValor = notasAux.get(ultimaNota);
             }
         }
         return notaDeMayorValor;

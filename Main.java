@@ -1,34 +1,33 @@
 public class Main {
-    public static void main(String[] args) {
-        Sistema sis = new Sistema();
-        Pasajero pj = new Pasajero("Juan", "Carlos");
-        Pasajero pj1 = new Pasajero("Juan", "Martin");
-        Pasajero pj2 = new Pasajero("Juan", "Matias");
-        Pasajero pj3 = new Pasajero("Juan", "Jose");
-        Pasajero pj4 = new Pasajero("Juan", "Mendez");
-        Pasajero pj5 = new Pasajero("Juan", "Matias Colque");
-        Pasajero pj6 = new Pasajero("Juan", "???");
-        Pasajero pj7 = new Pasajero("Juan", "Carlitos");
-        Pasajero pj8 = new Pasajero("Juan", "sus");
+    public static void main(String[] args){
+        Calculadora calc = new Calculadora();
+        Programa p = new Programa();
+        p.agregarInstruccion("sumar", new Instruccion(Operacion.PUSH, 5));
+        p.agregarInstruccion("sumar", new Instruccion(Operacion.PUSH, 15));
+        p.agregarInstruccion("sumar", new Instruccion(Operacion.ADD));
 
-        //Viaje aConstitucion = new Viaje();
+        p.agregarInstruccion("restar", new Instruccion(Operacion.PUSH, 5));
+        p.agregarInstruccion("restar", new Instruccion(Operacion.PUSH, 15));
+        p.agregarInstruccion("restar", new Instruccion(Operacion.SUB));
 
-        //sis.subePasajero(pj, aConstitucion);
-        /*sis.subePasajero(pj1, aConstitucion);
-        sis.subePasajero(pj2, aConstitucion);
-        sis.subePasajero(pj3, aConstitucion);
-        sis.subePasajero(pj4, aConstitucion);
-        sis.subePasajero(pj5, aConstitucion);
-        sis.subePasajero(pj6, aConstitucion);
-        sis.subePasajero(pj7, aConstitucion);
-        sis.subePasajero(pj8, aConstitucion);
+        p.agregarInstruccion("mult", new Instruccion(Operacion.PUSH, 3));
+        p.agregarInstruccion("mult", new Instruccion(Operacion.PUSH, 20));
+        p.agregarInstruccion("mult", new Instruccion(Operacion.MUL));
 
-        for(Pasajero superpj : sis.pasajerosQueSeHanSubidoAlgunaVez()) {
-            System.out.println(superpj.getTarjeta().getViajes().get(0).toString());
-        }*/
+        p.agregarInstruccion("pushear", new Instruccion(Operacion.PUSH, 3));
+        p.agregarInstruccion("pushear", new Instruccion(Operacion.PUSH, 5));
+        p.agregarInstruccion("pushear", new Instruccion(Operacion.PUSH, 13));
+        p.agregarInstruccion("pushear", new Instruccion(Operacion.PUSH, 20));
 
-        //System.out.println(pj.toString());
+        p.agregarInstruccion("readwritear", new Instruccion(Operacion.PUSH, 5));
+        p.agregarInstruccion("readwritear", new Instruccion(Operacion.WRITE, "x"));
+        p.agregarInstruccion("readwritear", new Instruccion(Operacion.PUSH, 15));
+        p.agregarInstruccion("readwritear", new Instruccion(Operacion.READ, "x"));
+        p.agregarInstruccion("readwritear", new Instruccion(Operacion.SUB));
 
-        Sistema.a();
+
+        calc.cargarPrograma(p);
+        calc.ejecutar("readwritear");
+
     }
 }

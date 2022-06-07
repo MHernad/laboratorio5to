@@ -10,15 +10,15 @@ public class Sistema {
         this.empresa = empresa;
     }
 
-    public static float asistenciaPorMes(Empleado E, int Mes)
+    public static float asistenciaPorMes(Empleado empleado, int Mes)
     {
         float entradasPorMes = 0;
-        for(LocalDate entrada : E.getIngresosDiarios().keySet())
+        for(LocalDate entrada : empleado.getIngresosDiarios().keySet())
         {
             if(entrada.getMonthValue() == Mes) entradasPorMes++;
         }
 
-        return (entradasPorMes / E.getDiasLaborales()) * 100;
+        return (entradasPorMes / empleado.getDiasLaborales()) * 100;
     }
 
 
@@ -30,35 +30,35 @@ public class Sistema {
 
     public void empleadoAsistenciaCompleta(int mes)
     {
-        for(Empleado e : empresa.getEmpleadosActuales())
+        for(Empleado empleado : empresa.getEmpleadosActuales())
         {
-            if(asistenciaPorMes(e, mes) == 100)
+            if(asistenciaPorMes(empleado, mes) == 100)
             {
-                System.out.println(e.obtenerDatos());
+                System.out.println(empleado.obtenerDatos());
             }
         }
     }
 
 
     public void empleadosConAsistenciaMenorAl50(int mes){
-        for(Empleado e : empresa.getEmpleadosActuales())
+        for(Empleado empleado : empresa.getEmpleadosActuales())
         {
-            if(asistenciaPorMes(e, mes) < 50)
+            if(asistenciaPorMes(empleado, mes) < 50)
             {
-                System.out.println(e.obtenerDatos());
+                System.out.println(empleado.obtenerDatos());
             }
         }
     }
 
 
     public void empleadosQueLlegaronTarde(){
-        for(Empleado e : empresa.getEmpleadosActuales())
+        for(Empleado empleado : empresa.getEmpleadosActuales())
         {
-            for (LocalTime horaDeIngreso : e.getIngresosDiarios().values())
+            for (LocalTime horaDeIngreso : empleado.getIngresosDiarios().values())
             {
-                if (horaDeIngreso.compareTo(e.getHoraDeEntrada().plusMinutes(5)) > 0)
+                if (horaDeIngreso.compareTo(empleado.getHoraDeEntrada().plusMinutes(5)) > 0)
                 {
-                    System.out.println(e.obtenerDatos());
+                    System.out.println(empleado.obtenerDatos());
                     break;
                 }
             }
@@ -68,9 +68,9 @@ public class Sistema {
 
     public int empleadosQueTrabajanEsteDia(DayOfWeek dia){
         int cantidadDeEmpleadosEnElDia = 0;
-        for (Empleado e : empresa.getEmpleadosActuales())
+        for (Empleado empleado : empresa.getEmpleadosActuales())
         {
-            if (e.getdiasEnDondeTrabajaSemanalmente().contains(dia))
+            if (empleado.getdiasEnDondeTrabajaSemanalmente().contains(dia))
             {
                 cantidadDeEmpleadosEnElDia++;
             }

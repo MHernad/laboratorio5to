@@ -3,12 +3,11 @@ import java.time.LocalDate;
 public class Sistema {
     public static float tarifa(Domicilio domicilio, LocalDate fecha) {
         float precio = 0;
-        float consumo = consumoEnFecha(domicilio, fecha);
 
         if(domicilio.isParticular()) {
-            precio = 2 * consumo;
+            precio = 2 * consumoEnFecha(domicilio, fecha);;
         } else {
-            precio = 3 * consumo;
+            precio = 3 * consumoEnFecha(domicilio, fecha);;
         }
 
         System.out.println("Antes de aplicar el descuento pagaria " + precio);
